@@ -7,30 +7,37 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-      appBar: AppBar(
-        title: const Text('Learning Flutter'),
-        backgroundColor: Colors.blue,
-      ),
-      body: Center(
-        child: Builder(
-          builder: (context) => ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const AboutPage(),
-                ),
-              );
-            },
-            child: const Text('About'),
+      home: Scaffold(
+          appBar: AppBar(
+            title: const Text('Learning Flutter'),
+            backgroundColor: Colors.blue,
           ),
-        ),
-      ),
-    ));
+          body: Builder(
+            builder: (context) => IconButton(
+              icon: Hero(
+                tag: "assets/images/loutre.png",
+                child: SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: Image.asset("assets/images/loutre.png"),
+                ),
+              ),
+              iconSize: 10,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AboutPage(),
+                  ),
+                );
+              },
+            ),
+          )),
+    );
   }
 }
 
@@ -43,12 +50,6 @@ class AboutPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("About"),
         ),
-        body: Center(
-          child: ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('Go back')),
-        ));
+        body: Hero(tag: "assets/images/loutre.png", child: Image.asset("assets/images/loutre.png")));
   }
 }
